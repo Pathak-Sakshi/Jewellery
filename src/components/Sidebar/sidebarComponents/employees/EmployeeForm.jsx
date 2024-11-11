@@ -50,7 +50,7 @@ function EmployeeForm({ employee, onCancel, onSave }) {
                     <Form.Label>Confirm Password</Form.Label>
                     <Form.Control type="confirmpassword" name="confirmpassword" value={formData.confirmpassword} onChange={handleChange} />
                 </Form.Group>
-                <Button variant="secondary" onClick={onCancel}>Cancel</Button>{' '}
+                <Button variant="danger" onClick={onCancel}>Back</Button>{' '}
                 <Button variant="primary" type="submit">Save</Button>
             </Form>
         </div>

@@ -21,7 +21,7 @@ function PermissionForm({ employee, onCancel }) {
       ...prevState,
       [category]: {
         ...prevState[category],
-        [permissionType]: !prevState[category][permissionType], // Toggle permission
+        [permissionType]: !prevState[category][permissionType], 
       },
     }));
   };
@@ -63,7 +63,7 @@ function PermissionForm({ employee, onCancel }) {
         ))}
 
         {/* Buttons */}
-        <Button variant="secondary" onClick={onCancel} className="me-2">Back</Button>
+        <Button variant="danger" onClick={onCancel} className="me-2">Back</Button>
         <Button variant="primary">Save</Button>
       </Form>
     </div>

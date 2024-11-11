@@ -1,0 +1,33 @@
+/* You can place this in your CSS file or in styled-components */
+.icon-button {
+    background: transparent;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    transition: transform 0.2s ease, color 0.3s ease;
+  }
+  
+  .icon {
+    font-size: 1.5rem; /* Adjust the size of the icons */
+    color: white;
+    transition: color 0.3s ease;
+  }
+  
+  /* Hover effect for better interactivity */
+  .icon-button:hover .icon {
+    color: #007bff; /* Change icon color on hover */
+    transform: scale(1.1); /* Slightly increase the icon size */
+  }
+  
+  /* Active state for clicking */
+  .icon-button:active .icon {
+    transform: scale(0.95); /* Slight shrink effect on active click */
+  }
+  
+  /* Optional: Adjust the space between buttons */
+  .react-class {
+    margin-right: 15px; /* Space between buttons */
+  }
+  
