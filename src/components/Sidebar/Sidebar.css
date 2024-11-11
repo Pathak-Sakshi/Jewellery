@@ -1,0 +1,51 @@
+/* Sidebar styles */
+.sidebar {
+  background-color: #f8f9fa;  
+  padding: 20px;             
+  position: sticky;           
+  top: 0;                     
+  height: 100vh;              
+  z-index: 1000;              
+  border-right: 1px solid #ddd; 
+}
+
+/* Sidebar header section */
+.sidebar-header {
+  color: #fff;               
+  padding: 15px;
+  width: 100%;              
+  text-align: center;       
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Nav link styles */
+.nav-item .nav-link {
+  display: flex;
+  justify-content: center;
+  color: #555; 
+  padding: 10px;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease; 
+  background-color: #f1f1f1;
+}
+
+/* Hover effect for nav links */
+.nav-item .nav-link:hover {
+  color: #007bff;
+  background-color: #e9ecef;
+}
+
+/* Active link styles */
+.nav-item .nav-link.active {
+  color: #fff;
+  background-color: #007bff;
+  font-weight: bold;
+}
+
+/* Spacing between nav items */
+.nav-item + .nav-item {
+  margin-top: 15px;
+}
