@@ -172,7 +172,7 @@ function Home() {
       </div>
 
       {/* Chart for Sale and Loan Activity */}
-      <div className="mt-4">
+      <div className="mt-4 mb-4">
         <h4>{viewPeriod === 'weekly' ? 'Sales & Loan Activity (Weekly)' : 'Sales & Loan Activity (Monthly)'}</h4>
         <Line
           data={viewPeriod === 'weekly' ? weeklyData : monthlyData}
