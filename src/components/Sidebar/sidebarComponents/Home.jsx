@@ -133,7 +133,7 @@ function Home() {
         <Col md={3} className="mb-3">
           <Card>
             <Card.Body>
-              <Card.Title>Karigaar</Card.Title>
+              <Card.Title>Karigaar Inventory</Card.Title>
               <Card.Text>{karigaarInventory}</Card.Text>
             </Card.Body>
           </Card>
