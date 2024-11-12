@@ -29,8 +29,8 @@ function Employees() {
     switch (view) {
       case 'list':
         return (
-          <div>
-            <div className="d-flex justify-content-between align-items-center mb-4 mt-3">
+          <div className='p-4'>
+            <div className="d-flex justify-content-between align-items-center mt-4 mb-4">
               <h3>Employee List</h3>
               <Button variant="primary" onClick={handleNewEmployee}>New Employee</Button>
             </div>
@@ -50,7 +50,7 @@ function Employees() {
                     <td>{employee.role}</td>
                     <td>
                        {/* Wrap the buttons in a flex container */}
-                       <div className="d-flex justify-content-start align-items-center gap-2">
+                      <div className="d-flex justify-content-end align-items-center gap-4 p-1">
                       <Button variant="primary" onClick={() => handlePermissionForm(employee)}>Emp Activity</Button>{' '}
                       <Dropdown>
                         <Dropdown.Toggle variant="primary">Actions</Dropdown.Toggle>

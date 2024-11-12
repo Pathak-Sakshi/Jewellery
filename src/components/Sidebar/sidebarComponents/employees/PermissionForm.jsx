@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { Button, Form, Row, Col } from 'react-bootstrap';
+import './Employees.css'
 
 function PermissionForm({ employee, onCancel }) {
   // Initial permissions for each functionality (view, create, edit, delete)
   const initialPermissions = {
-    inventory: { view: false, create: false, edit: false, delete: false },
+    Items: { view: false, create: false, edit: false, delete: false },
     customer: { view: false, create: false, edit: false, delete: false },
-    invoice: { view: false, create: false, edit: false, delete: false },
     loanPerson: { view: false, create: false, edit: false, delete: false },
     karigar: { view: false, create: false, edit: false, delete: false },
+    invoice: { view: false, create: false, edit: false, delete: false },
     itemTransfer: { view: false, create: false, edit: false, delete: false },
   };
 
@@ -27,12 +28,12 @@ function PermissionForm({ employee, onCancel }) {
   };
 
   return (
-    <div className="mt-3 mb-4">
-      <h3>Permission Form for {employee.name}</h3>
+    <div className="mt-2 mb-4 p-4">
+      <h3>Permissions for {employee.name}</h3>
 
       <Form >
         {/* Permissions Table: View, Create, Edit, Delete in a single row */}
-        <Row className="mb-4 mt-4 ms-5">
+        <Row className="mb-4 mt-4">
           <Col sm={3}><strong>Permission</strong></Col>
           <Col sm={2}><strong>View</strong></Col>
           <Col sm={2}><strong>Create</strong></Col>
@@ -50,7 +51,7 @@ function PermissionForm({ employee, onCancel }) {
               {/* View, Create, Edit, Delete permissions checkboxes */}
               {['view', 'create', 'edit', 'delete'].map((permissionType) => (
                 <Col sm={2} key={permissionType}>
-                  <Form.Check
+                  <Form.Check className='checkbox'
                     type="checkbox"
                     label=""
                     checked={permissions[category][permissionType]}
@@ -60,11 +61,11 @@ function PermissionForm({ employee, onCancel }) {
               ))}
             </Row>
           </div>
-        ))}
+        ))}   
 
         {/* Buttons */}
-        <Button variant="danger" onClick={onCancel} className="me-2">Back</Button>
-        <Button variant="primary">Save</Button>
+        <Button variant="danger" onClick={onCancel} className="me-2 mt-3">Back</Button>
+        <Button variant="primary" className="me-2 mt-3">Save</Button>
       </Form>
     </div>
   );

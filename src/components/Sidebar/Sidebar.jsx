@@ -1,6 +1,6 @@
 import '../Sidebar/Sidebar.css';
 import React from 'react';
-import { Nav, Tab, Col, Row } from 'react-bootstrap';
+import { Nav, Tab, Row } from 'react-bootstrap';
 
 function Sidebar({ onShowItems, onShowEmployees, onShowHome, onShowAddItems, onShowUsers, onShowInvoice, onShowItemTransfer }) {
   return (

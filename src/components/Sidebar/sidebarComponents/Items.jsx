@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Table, Button, Row, Col, Form } from 'react-bootstrap';
+import { Table, Button, Row, Form } from 'react-bootstrap';
 
 const Items = () => {
   // Sample data for the items table
@@ -13,16 +13,16 @@ const Items = () => {
       { srno: 6, items: 'Item 3', numbers: '1', group: 'group C', description: '....', altcode: 'Alt-1', types: 'jewellery', date: '12/12/2024' },
     ],
     loanInventory: [
-      { srno: 1, items: 'Item 1', numbers: '5', group: 'group A', person: '100', description: '....', altcode: 'Alt-1', types: 'jewellery', date: '12/12/2024' },
-      { srno: 2, items: 'Item 2', numbers: '7', group: 'group B', person: '150', description: '....', altcode: 'Alt-2', types: 'jewellery', date: '12/12/2024' },
+      { srno: 1, items: 'Item 1', numbers: '5', group: 'group A', person: 'Rakesh', description: '....', altcode: 'Alt-1', types: 'jewellery', date: '12/12/2024' },
+      { srno: 2, items: 'Item 2', numbers: '7', group: 'group B', person: 'Satakshi', description: '....', altcode: 'Alt-2', types: 'jewellery', date: '12/12/2024' },
     ],
     karigarInventory: [
-      { srno: 1, items: 'Item 1', numbers: '4', group: 'group A', person: '100', description: '....', altcode: 'Alt-1', types: 'jewellery', date: '12/12/2024' },
-      { srno: 2, items: 'Item 2', numbers: '6', group: 'group B', person: '200', description: '....', altcode: 'Alt-2', types: 'jewellery', date: '12/12/2024' },
+      { srno: 1, items: 'Item 1', numbers: '4', group: 'group A', person: 'Ramesh', description: '....', altcode: 'Alt-1', types: 'jewellery', date: '12/12/2024' },
+      { srno: 2, items: 'Item 2', numbers: '6', group: 'group B', person: 'Mohanlal', description: '....', altcode: 'Alt-2', types: 'jewellery', date: '12/12/2024' },
     ],
     saleInventory: [
-      { srno: 1, items: 'Item 1', numbers: '3', group: 'group A', person: '120', description: '....', altcode: 'Alt-3', types: 'jewellery', date: '12/12/2024' },
-      { srno: 2, items: 'Item 2', numbers: '10', group: 'group B', person: '250', description: '....', altcode: 'Alt-3', types: 'jewellery', date: '12/12/2024' },
+      { srno: 1, items: 'Item 1', numbers: '3', group: 'group A', person: 'Rahul', description: '....', altcode: 'Alt-3', types: 'jewellery', date: '12/12/2024' },
+      { srno: 2, items: 'Item 2', numbers: '10', group: 'group B', person: 'Sakshi', description: '....', altcode: 'Alt-3', types: 'jewellery', date: '12/12/2024' },
     ]
   };
 
@@ -205,44 +205,36 @@ const Items = () => {
       <h2 className="mb-4">Items List</h2>
 
       {/* Inventory Toggle Buttons */}
-      <Row className="mb-2 mt-3 g-0">
-        <Col className="p-0">
-          <Button
-            variant={activeInventory === 'mainInventory' ? 'primary' : 'secondary'}
-            onClick={() => handleInventoryChange('mainInventory')}
-            className="w-100"
-          >
-            Main Inventory
-          </Button>
-        </Col>
-        <Col className="p-0">
-          <Button
-            variant={activeInventory === 'loanInventory' ? 'primary' : 'secondary'}
-            onClick={() => handleInventoryChange('loanInventory')}
-            className="w-100"
-          >
-            Loan Inventory
-          </Button>
-        </Col>
-        <Col className="p-0">
-          <Button
-            variant={activeInventory === 'karigarInventory' ? 'primary' : 'secondary'}
-            onClick={() => handleInventoryChange('karigarInventory')}
-            className="w-100"
-          >
-            Karigar Inventory
-          </Button>
-        </Col>
-        <Col className="p-0">
-          <Button
-            variant={activeInventory === 'saleInventory' ? 'primary' : 'secondary'}
-            onClick={() => handleInventoryChange('saleInventory')}
-            className="w-100"
-          >
-            Sale Inventory
-          </Button>
-        </Col>
-      </Row>
+      <div className="inventory-buttons-container mt-3">
+        <Button
+          variant={activeInventory === 'mainInventory' ? 'primary' : 'secondary'}
+          onClick={() => handleInventoryChange('mainInventory')}
+          className="inventory-button"
+        >
+          Main Inventory
+        </Button>
+        <Button
+          variant={activeInventory === 'loanInventory' ? 'primary' : 'secondary'}
+          onClick={() => handleInventoryChange('loanInventory')}
+          className="inventory-button"
+        >
+          Loan Inventory
+        </Button>
+        <Button
+          variant={activeInventory === 'karigarInventory' ? 'primary' : 'secondary'}
+          onClick={() => handleInventoryChange('karigarInventory')}
+          className="inventory-button"
+        >
+          Karigar Inventory
+        </Button>
+        <Button
+          variant={activeInventory === 'saleInventory' ? 'primary' : 'secondary'}
+          onClick={() => handleInventoryChange('saleInventory')}
+          className="inventory-button"
+        >
+          Sale Inventory
+        </Button>
+      </div>
 
       {/* Table Section using React-Bootstrap's Table component */}
       {renderTable(getActiveData())}

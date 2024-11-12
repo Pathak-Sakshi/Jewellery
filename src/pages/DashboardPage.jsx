@@ -5,11 +5,11 @@ import Header from '../components/Dashboard/Header/Header';
 import Footer from '../components/Dashboard/Footer/Footer';
 import Items from '../components/Sidebar/sidebarComponents/Items';
 import Home from '../components/Sidebar/sidebarComponents/Home';
-import AddItems from '../components/Sidebar/sidebarComponents/AddItems';
 import Users from '../components/Sidebar/sidebarComponents/Users';
 import Invoice from '../components/Sidebar/sidebarComponents/Invoice';
 import ItemTransfer from '../components/Sidebar/sidebarComponents/ItemTransfer';
 import Employees from '../components/Sidebar/sidebarComponents/employees/Employees';
+import AddItems from '../components/Sidebar/sidebarComponents/addItems/AddItems';
 
 function DashboardPage() {
   const [currentView, setCurrentView] = useState('home');

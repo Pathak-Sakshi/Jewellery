@@ -49,3 +49,29 @@
 .nav-item + .nav-item {
   margin-top: 15px;
 }
+
+
+/*........................ Items css applied here...................... */
+
+/* Container for the inventory toggle buttons */
+.inventory-buttons-container {
+  display: flex;            
+  justify-content: center; 
+}
+
+/* Style for each button */
+.inventory-button {
+  margin: 0;             
+  padding: 15px 20px; 
+  width: 200px;    
+}
+
+/* Optional: Hover effect for buttons */
+.inventory-button:hover {
+  opacity: 0.8;
+}
+
+/* Optional: Focus style for buttons */
+.inventory-button:focus {
+  box-shadow: none;
+}

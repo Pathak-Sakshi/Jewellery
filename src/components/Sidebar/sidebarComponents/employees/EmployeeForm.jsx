@@ -28,8 +28,8 @@ function EmployeeForm({ employee, onCancel, onSave }) {
 
     return (
         <div>
-            <h3>{employee ? 'Edit Employee' : 'New Employee'}</h3>
-            <Form onSubmit={handleSubmit}>
+            <h3 className='mt-1 p-4 bg-secondary text-white'>{employee ? 'Edit Employee' : 'New Employee'}</h3>
+            <Form className='container p-4 mb-4 shadow-sm rounded bg-white' onSubmit={handleSubmit}>
                 <Form.Group controlId="name">
                     <Form.Label>Name</Form.Label>
                     <Form.Control type="text" name="name" value={formData.name} onChange={handleChange} required />
@@ -50,8 +50,8 @@ function EmployeeForm({ employee, onCancel, onSave }) {
                     <Form.Label>Confirm Password</Form.Label>
                     <Form.Control type="confirmpassword" name="confirmpassword" value={formData.confirmpassword} onChange={handleChange} />
                 </Form.Group>
-                <Button variant="danger" onClick={onCancel}>Back</Button>{' '}
-                <Button variant="primary" type="submit">Save</Button>
+                <Button className='mt-3' variant="danger" onClick={onCancel}>Back</Button>{' '}
+                <Button className='mt-3' variant="primary" type="submit">Save</Button>
             </Form>
         </div>
     );
