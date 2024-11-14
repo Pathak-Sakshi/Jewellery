@@ -39,6 +39,7 @@ function Employees() {
                 <tr>
                   <th>Id</th>
                   <th>Name</th>
+                  <th>User Name</th>
                   <th>Role</th>
                 </tr>
               </thead>
@@ -47,11 +48,12 @@ function Employees() {
                   <tr key={employee.id}>
                     <td>{employee.id}</td>
                     <td>{employee.name}</td>
+                    <td>{employee.username}</td>
                     <td>{employee.role}</td>
                     <td>
                        {/* Wrap the buttons in a flex container */}
                       <div className="d-flex justify-content-end align-items-center gap-4 p-1">
-                      <Button variant="primary" onClick={() => handlePermissionForm(employee)}>Emp Activity</Button>{' '}
+                      <Button variant="primary" onClick={() => handlePermissionForm(employee)}>Permissions</Button>{' '}
                       <Dropdown>
                         <Dropdown.Toggle variant="primary">Actions</Dropdown.Toggle>
                         <Dropdown.Menu >

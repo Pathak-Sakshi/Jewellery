@@ -5,11 +5,14 @@ import Header from '../components/Dashboard/Header/Header';
 import Footer from '../components/Dashboard/Footer/Footer';
 import Items from '../components/Sidebar/sidebarComponents/Items';
 import Home from '../components/Sidebar/sidebarComponents/Home';
-import Users from '../components/Sidebar/sidebarComponents/Users';
 import Invoice from '../components/Sidebar/sidebarComponents/Invoice';
 import ItemTransfer from '../components/Sidebar/sidebarComponents/ItemTransfer';
 import Employees from '../components/Sidebar/sidebarComponents/employees/Employees';
-import AddItems from '../components/Sidebar/sidebarComponents/addItems/AddItems';
+import Users from '../components/Sidebar/sidebarComponents/users/Users';
+import Customer from '../components/Sidebar/sidebarComponents/users/Customer';
+import LoanPerson from '../components/Sidebar/sidebarComponents/users/LoanPerson';
+import Karigar from '../components/Sidebar/sidebarComponents/users/Karigar';
+import ItemList from '../components/Sidebar/sidebarComponents/addItems/ItemList';
 
 function DashboardPage() {
   const [currentView, setCurrentView] = useState('home');
@@ -21,14 +24,20 @@ function DashboardPage() {
   const handleShowUsers = () => setCurrentView('users');
   const handleShowInvoice = () => setCurrentView('invoice');
   const handleShowItemTransfer = () => setCurrentView('itemTransfer');
+  const handleShowCustomer = () => setCurrentView('customer');
+  const handleShowLoanPerson = () => setCurrentView('loanPerson');
+  const handleShowKarigar = () => setCurrentView('karigar');
 
   // Mapping views to components
   const viewComponents = {
     home: <Home />,
     employees: <Employees />,
     items: <Items />,
-    addItems: <AddItems />,
+    addItems: <ItemList />,
     users: <Users />,
+    customer: <Customer />,
+    loanPerson: <LoanPerson />,
+    karigar: <Karigar />,
     invoice: <Invoice />,
     itemTransfer: <ItemTransfer />,
   };
@@ -36,7 +45,7 @@ function DashboardPage() {
   return (
     <div className="dashboard-page">
       <Container fluid className="d-flex" style={{ minHeight: '100vh' }}>
-        <Col xs={3} md={2} className="bg-light p-3 sidebar">
+        <Col xs={4} md={2} className="bg-light p-3 sidebar">
           <Sidebar
             onShowHome={handleShowHome}
             onShowEmployees={handleShowEmployees}
@@ -45,6 +54,10 @@ function DashboardPage() {
             onShowUsers={handleShowUsers}
             onShowInvoice={handleShowInvoice}
             onShowItemTransfer={handleShowItemTransfer}
+            onShowItemUsers={handleShowUsers}
+            onShowCustomer={handleShowCustomer}
+            onShowLoanPerson={handleShowLoanPerson}
+            onShowKarigar={handleShowKarigar}
           />
         </Col>
 

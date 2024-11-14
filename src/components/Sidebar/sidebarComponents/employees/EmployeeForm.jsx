@@ -1,20 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Form } from 'react-bootstrap';
 
-function EmployeeForm({ employee, onCancel, onSave }) {
+function CustomerForm({ customer, onCancel, onSave }) {
     const [formData, setFormData] = useState({
-        name: '',
-        username: '',
-        role: '',
-        password: '',
-        confirmpassword: ''
+        customerName: '',
+        companyName: '',
+        mobileNo: '',
+        altMobileNo: '',
+        address: '',
+        gstNo: '',
+        customerType: 'retailer',
     });
 
     useEffect(() => {
-        if (employee) {
-            setFormData(employee);
+        if (customer) {
+            setFormData(customer);
         }
-    }, [employee]);
+    }, [customer]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -23,38 +25,97 @@ function EmployeeForm({ employee, onCancel, onSave }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        onSave(formData);
+        onSave(formData); // Pass the form data to the parent component
     };
 
     return (
         <div>
-            <h3 className='mt-1 p-4 bg-secondary text-white'>{employee ? 'Edit Employee' : 'New Employee'}</h3>
-            <Form className='container p-4 mb-4 shadow-sm rounded bg-white' onSubmit={handleSubmit}>
-                <Form.Group controlId="name">
-                    <Form.Label>Name</Form.Label>
-                    <Form.Control type="text" name="name" value={formData.name} onChange={handleChange} required />
+            <h3 className="mt-1 p-4 bg-secondary text-white">
+                {customer ? 'Edit Customer' : 'New Customer'}
+            </h3>
+            <Form className="container p-4 mb-4 shadow-sm rounded bg-white" onSubmit={handleSubmit}>
+                <Form.Group controlId="customerName">
+                    <Form.Label>Customer Name</Form.Label>
+                    <Form.Control
+                        type="text"
+                        name="customerName"
+                        value={formData.customerName}
+                        onChange={handleChange}
+                        required
+                    />
                 </Form.Group>
-                <Form.Group controlId="username">
-                    <Form.Label>UserName</Form.Label>
-                    <Form.Control type="text" name="username" value={formData.username} onChange={handleChange} required />
+                <Form.Group controlId="companyName">
+                    <Form.Label>Company Name</Form.Label>
+                    <Form.Control
+                        type="text"
+                        name="companyName"
+                        value={formData.companyName}
+                        onChange={handleChange}
+                        required
+                    />
                 </Form.Group>
-                <Form.Group controlId="role">
-                    <Form.Label>Role</Form.Label>
-                    <Form.Control type="text" name="role" value={formData.role} onChange={handleChange} required />
+                <Form.Group controlId="mobileNo">
+                    <Form.Label>Mobile No.</Form.Label>
+                    <Form.Control
+                        type="text"
+                        name="mobileNo"
+                        value={formData.mobileNo}
+                        onChange={handleChange}
+                        required
+                    />
                 </Form.Group>
-                <Form.Group controlId="password">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" name="password" value={formData.password} onChange={handleChange} required />
+                <Form.Group controlId="altMobileNo">
+                    <Form.Label>Alt Mobile No.</Form.Label>
+                    <Form.Control
+                        type="text"
+                        name="altMobileNo"
+                        value={formData.altMobileNo}
+                        onChange={handleChange}
+                    />
                 </Form.Group>
-                <Form.Group controlId="confirmpassword">
-                    <Form.Label>Confirm Password</Form.Label>
-                    <Form.Control type="confirmpassword" name="confirmpassword" value={formData.confirmpassword} onChange={handleChange} />
+                <Form.Group controlId="address">
+                    <Form.Label>Address</Form.Label>
+                    <Form.Control
+                        as="textarea"
+                        rows="3"
+                        name="address"
+                        value={formData.address}
+                        onChange={handleChange}
+                        required
+                    />
                 </Form.Group>
-                <Button className='mt-3' variant="danger" onClick={onCancel}>Back</Button>{' '}
-                <Button className='mt-3' variant="primary" type="submit">Save</Button>
+                <Form.Group controlId="gstNo">
+                    <Form.Label>GST No.</Form.Label>
+                    <Form.Control
+                        type="text"
+                        name="gstNo"
+                        value={formData.gstNo}
+                        onChange={handleChange}
+                        required
+                    />
+                </Form.Group>
+                <Form.Group controlId="customerType">
+                    <Form.Label>Customer Type</Form.Label>
+                    <Form.Control
+                        as="select"
+                        name="customerType"
+                        value={formData.customerType}
+                        onChange={handleChange}
+                        required
+                    >
+                        <option value="retailer">Retailer</option>
+                        <option value="wholesaler">Wholesaler</option>
+                    </Form.Control>
+                </Form.Group>
+                <Button className="mt-3" variant="danger" onClick={onCancel}>
+                    Back
+                </Button>{' '}
+                <Button className="mt-3" variant="primary" type="submit">
+                    Save
+                </Button>
             </Form>
         </div>
     );
 }
 
-export default EmployeeForm;
+export default CustomerForm;

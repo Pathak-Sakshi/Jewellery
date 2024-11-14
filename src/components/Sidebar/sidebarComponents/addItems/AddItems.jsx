@@ -5,7 +5,7 @@ import GemstoneForm from './GemstoneForm';
 import RudrakshForm from './RudrakshForm';
 import WatchForm from './WatchForm';
 
-const AddItemForm = () => {
+const AddItemForm = ({ onAddItem }) => {
   const [itemType, setItemType] = useState('');
   const [formData, setFormData] = useState({
     number: '',
@@ -36,10 +36,22 @@ const AddItemForm = () => {
     });
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Pass form data to the parent component when the form is submitted
+    onAddItem(formData);
+    setFormData({
+      number: '',
+      group: '',
+      description: '',
+      alternativeCode: '',
+    });
+  };
+
   return (
     <Container>
       <h2 className="mt-4">Add Item Form</h2>
-      <Form>
+      <Form onSubmit={handleSubmit}>
         {/* Show the common form fields only if no item type is selected */}
         {itemType === '' && (
           <>
@@ -120,14 +132,14 @@ const AddItemForm = () => {
         {/* Show "Back" button when an item type is selected to go back to the selection stage */}
         {itemType !== '' && (
           <Button variant="danger" onClick={handleBackToSelect} className="mt-3">
-            Back 
+            Back
           </Button>
         )}
 
         {/* Submit Button */}
         {itemType !== '' && (
           <Button variant="primary" type="submit" className="mt-3">
-            Done
+            Submit
           </Button>
         )}
       </Form>

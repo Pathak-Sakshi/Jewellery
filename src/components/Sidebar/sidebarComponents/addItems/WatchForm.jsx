@@ -3,16 +3,15 @@ import { Row, Col, Form, Button } from 'react-bootstrap';
 
 const JewelleryForm = () => {
   const [jewelleryData, setJewelleryData] = useState({
-    jewelleryName: '',
-    material: '',
+    name: '',
     purity: '',
     origin: '',
-    totalWeight: '',
     purchasePrice: '',
+    marketPrice: '',
     sellingPrice: '',
     stockQuantity: '',
     rfidNo: '',
-    nature: '',
+    weight:'',
     photos: [],
     entryDateTime: '',
   });
@@ -33,26 +32,23 @@ const JewelleryForm = () => {
   };
 
   return (
-    <div className="dynamic-fields">
+    <div className="dynamic-fields"> 
+
       <Row className="mb-3">
         <Col md={6}>
-          <Form.Group controlId="formJewelleryName">
-            <Form.Label>Jewellery Name</Form.Label>
-            <Form.Control
-              type="text"
-              name="jewelleryName"
-              value={jewelleryData.jewelleryName}
-              onChange={handleInputChange}
-            />
+        <Form.Group controlId="formname">
+            <Form.Label>Watch Name :</Form.Label>
+            <Form.Control type="text" name="name" value={jewelleryData.name} onChange={handleInputChange}>
+            </Form.Control>
           </Form.Group>
         </Col>
         <Col md={6}>
-          <Form.Group controlId="formMaterial">
-            <Form.Label>Material</Form.Label>
+          <Form.Group controlId="formUnitPrice">
+            <Form.Label>Purity :</Form.Label>
             <Form.Control
               type="text"
-              name="material"
-              value={jewelleryData.material}
+              name="purity"
+              value={jewelleryData.purity}
               onChange={handleInputChange}
             />
           </Form.Group>
@@ -62,32 +58,75 @@ const JewelleryForm = () => {
       {/* Additional Fields */}
       <Row className="mb-3">
         <Col md={6}>
-          <Form.Group controlId="formPurity">
-            <Form.Label>Purity</Form.Label>
+          <Form.Group controlId="formWeight">
+            <Form.Label>Weight :</Form.Label>
             <Form.Control
               type="text"
-              name="purity"
-              value={jewelleryData.purity}
+              name="weight"
+              value={jewelleryData.weight}
               onChange={handleInputChange}
             />
           </Form.Group>
         </Col>
         <Col md={6}>
-          <Form.Group controlId="formOrigin">
-            <Form.Label>Origin</Form.Label>
+          <Form.Group controlId="formStockQuantity">
+            <Form.Label>Stock Quantity</Form.Label>
             <Form.Control
               type="text"
-              name="origin"
-              value={jewelleryData.origin}
+              name="stockQuantity"
+              value={jewelleryData.stockQuantity}
+              onChange={handleInputChange}
+            />
+          </Form.Group>
+        </Col>
+
+      </Row>
+
+      {/* Nature dropdown and entry date */}
+      <Row className="mb-3">
+      
+        
+      </Row>
+
+       {/*purchaging and selling price */}
+      <Row className="mb-3">
+        <Col md={6}>
+          <Form.Group controlId="formPurchagesPrice">
+            <Form.Label>Purchages price</Form.Label>
+            <Form.Control
+              type="text"
+              name="purchasePrice"
+              value={jewelleryData. purchasePrice}
+              onChange={handleInputChange}
+            />
+          </Form.Group>
+        </Col>
+        <Col md={6}>
+          <Form.Group controlId="formSellingPrice">
+            <Form.Label>Selling price</Form.Label>
+            <Form.Control
+              type="text"
+              name="sellingPrice"
+              value={jewelleryData.sellingPrice}
               onChange={handleInputChange}
             />
           </Form.Group>
         </Col>
       </Row>
-
-      {/* Add the rest of the jewellery fields... */}
+      
       {/* Include File Upload for Photos */}
       <Row className="mb-3">
+      <Col md={6}>
+          <Form.Group controlId="formEntryDateTime">
+            <Form.Label>Entry Date & Time</Form.Label>
+            <Form.Control
+              type="datetime-local"
+              name="entryDateTime"
+              value={jewelleryData.entryDateTime}
+              onChange={handleInputChange}
+            />
+          </Form.Group>
+        </Col>
         <Col md={6}>
           <Form.Group controlId="formPhotos">
             <Form.Label>Photos</Form.Label>
@@ -101,26 +140,11 @@ const JewelleryForm = () => {
         </Col>
       </Row>
 
-      {/* Nature dropdown */}
-      <Row className="mb-3">
+       {/* RFID number*/}
+     <Row className="mb-3">
         <Col md={6}>
-          <Form.Group controlId="formNature">
-            <Form.Label>Nature</Form.Label>
-            <Form.Control as="select" name="nature" value={jewelleryData.nature} onChange={handleInputChange}>
-              <option value="">Select Nature</option>
-              <option value="natural">Natural</option>
-              <option value="heated">Heated</option>
-              <option value="treated">Treated</option>
-            </Form.Control>
-          </Form.Group>
-        </Col>
-      </Row>
-
-      {/* RFID number and entry date */}
-      <Row className="mb-3">
-        <Col md={6}>
-          <Form.Group controlId="formRfid">
-            <Form.Label>RFID Number</Form.Label>
+        <Form.Group controlId="formRfid">
+            <Form.Label>RFID Number :</Form.Label>
             <Form.Control
               type="text"
               name="rfidNo"
@@ -129,18 +153,8 @@ const JewelleryForm = () => {
             />
           </Form.Group>
         </Col>
-        <Col md={6}>
-          <Form.Group controlId="formEntryDateTime">
-            <Form.Label>Entry Date & Time</Form.Label>
-            <Form.Control
-              type="datetime-local"
-              name="entryDateTime"
-              value={jewelleryData.entryDateTime}
-              onChange={handleInputChange}
-            />
-          </Form.Group>
-        </Col>
-      </Row>
+      </Row>  
+
     </div>
   );
 };

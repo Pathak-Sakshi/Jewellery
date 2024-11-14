@@ -8,6 +8,7 @@ const JewelleryForm = () => {
     size: '',
     origin: '',
     purchasePrice: '',
+    marketPrice:'',
     sellingPrice: '',
     stockQuantity: '',
     rfidNo: '',
@@ -39,13 +40,13 @@ const JewelleryForm = () => {
     
      {/* RFID number*/}
      <Row className="mb-3">
-        <Col md={6}>
-        <Form.Group controlId="formRfid">
-            <Form.Label>RFID Number :</Form.Label>
+     <Col md={6}>
+          <Form.Group controlId="formJewelleryName">
+            <Form.Label>Gemstone Name :</Form.Label>
             <Form.Control
               type="text"
-              name="rfidNo"
-              value={jewelleryData.rfidNo}
+              name="jewelleryName"
+              value={jewelleryData.jewelleryName}
               onChange={handleInputChange}
             />
           </Form.Group>
@@ -65,15 +66,14 @@ const JewelleryForm = () => {
       </Row> 
 
       <Row className="mb-3">
-        <Col md={6}>
-          <Form.Group controlId="formJewelleryName">
-            <Form.Label>Jewellery Name :</Form.Label>
-            <Form.Control
-              type="text"
-              name="jewelleryName"
-              value={jewelleryData.jewelleryName}
-              onChange={handleInputChange}
-            />
+      <Col md={6}>
+        <Form.Group controlId="formDimensions">
+            <Form.Label>Dimensions</Form.Label>
+            <Form.Control 
+                type="text" 
+                name="dimensions" 
+                value={jewelleryData.dimensions} 
+                onChange={handleInputChange} />
           </Form.Group>
         </Col>
         <Col md={6}>
@@ -104,14 +104,14 @@ const JewelleryForm = () => {
           </Form.Group>
         </Col>
         <Col md={6}>
-        <Form.Group controlId="formOrigin">
-            <Form.Label>Origin</Form.Label>
-            <Form.Control as="select" name="origin" value={jewelleryData.origin} onChange={handleInputChange}>
-              <option value="">Select country</option>
-              <option value="natural">India</option>
-              <option value="heated">Us</option>
-              <option value="treated">Russia</option>
-            </Form.Control>
+          <Form.Group controlId="formWieght">
+            <Form.Label>Weight :</Form.Label>
+            <Form.Control
+              type="text"
+              name="weight"
+              value={jewelleryData.weight}
+              onChange={handleInputChange}
+            />
           </Form.Group>
         </Col>
       </Row>
@@ -129,42 +129,17 @@ const JewelleryForm = () => {
           </Form.Group>
         </Col>
         <Col md={6}>
-          <Form.Group controlId="formWieght">
-            <Form.Label>Weight :</Form.Label>
+          <Form.Group controlId="formStockQuantity">
+            <Form.Label>Stock Quantity</Form.Label>
             <Form.Control
               type="text"
-              name="weight"
-              value={jewelleryData.weight}
+              name="stockQuantity"
+              value={jewelleryData.stockQuantity}
               onChange={handleInputChange}
             />
           </Form.Group>
         </Col>
         
-      </Row> 
-
-      {/* Nature dropdown and entry date */}
-      <Row className="mb-3">
-        <Col md={6}>
-        <Form.Group controlId="formDimensions">
-            <Form.Label>Dimensions</Form.Label>
-            <Form.Control 
-                type="text" 
-                name="dimensions" 
-                value={jewelleryData.dimensions} 
-                onChange={handleInputChange} />
-          </Form.Group>
-        </Col>
-        <Col md={6}>
-          <Form.Group controlId="formEntryDateTime">
-            <Form.Label>Entry Date & Time</Form.Label>
-            <Form.Control
-              type="datetime-local"
-              name="entryDateTime"
-              value={jewelleryData.entryDateTime}
-              onChange={handleInputChange}
-            />
-          </Form.Group>
-        </Col>
       </Row>
 
        {/*purchaging and selling price */}
@@ -182,6 +157,20 @@ const JewelleryForm = () => {
         </Col>
         <Col md={6}>
           <Form.Group controlId="formSellingPrice">
+            <Form.Label>Market price</Form.Label>
+            <Form.Control
+              type="text"
+              name="marketPrice"
+              value={jewelleryData.marketPrice}
+              onChange={handleInputChange}
+            />
+          </Form.Group>
+        </Col>
+      </Row>
+      {/* Nature dropdown and entry date */}
+      <Row className="mb-3">
+      <Col md={6}>
+          <Form.Group controlId="formSellingPrice">
             <Form.Label>Selling price</Form.Label>
             <Form.Control
               type="text"
@@ -191,17 +180,25 @@ const JewelleryForm = () => {
             />
           </Form.Group>
         </Col>
+        <Col md={6}>
+        <Form.Group controlId="formOrigin">
+            <Form.Label>Origin</Form.Label>
+            <Form.Control type="text" name="origin" value={jewelleryData.origin} onChange={handleInputChange}>
+             
+            </Form.Control>
+          </Form.Group>
+        </Col>
       </Row>
       
       {/* Include File Upload for Photos */}
       <Row className="mb-3">
       <Col md={6}>
-          <Form.Group controlId="formStockQuantity">
-            <Form.Label>Stock Quantity</Form.Label>
+          <Form.Group controlId="formEntryDateTime">
+            <Form.Label>Entry Date & Time</Form.Label>
             <Form.Control
-              type="text"
-              name="stockQuantity"
-              value={jewelleryData.stockQuantity}
+              type="datetime-local"
+              name="entryDateTime"
+              value={jewelleryData.entryDateTime}
               onChange={handleInputChange}
             />
           </Form.Group>
@@ -218,6 +215,19 @@ const JewelleryForm = () => {
           </Form.Group>
         </Col>
       </Row>
+      <Row className="mb-3">
+        <Col md={6}>
+        <Form.Group controlId="formRfid">
+            <Form.Label>RFID Number :</Form.Label>
+            <Form.Control
+              type="text"
+              name="rfidNo"
+              value={jewelleryData.rfidNo}
+              onChange={handleInputChange}
+            />
+          </Form.Group>
+        </Col>
+      </Row> 
 
     </div>
   );
